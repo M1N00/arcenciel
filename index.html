@@ -19,6 +19,7 @@
             color: white;
             border: none;
             cursor: pointer;
+            font-size: .5em;
         }
         .center-button:hover {
             background-color: #45a049;
@@ -26,7 +27,7 @@
         .background-div {
             background-image: url('aquarelle-arc-ciel-abstrait-peint-main_100956-424-4.avif');
             background-size: cover;
-            color: white;
+            color: rgb(59, 59, 59);
             padding: 50px;
             height: 100vh;
             display: flex;
@@ -34,7 +35,7 @@
             justify-content: center;
             align-items: center;
             position: relative;
-            font-size: 2.5em;
+            font-size: 4vh;
         }
         .background-div::before {
             content: "";
@@ -43,12 +44,34 @@
             left: 0;
             width: 100%;
             height: 100%;
-            background-color: rgba(56, 56, 56, 0.5); /* Darken the image */
+            background-color: rgba(0, 0, 0, 0.11); /* Increased contrast */
             z-index: 1;
         }
         .background-div > * {
             position: relative;
             z-index: 2;
+        }
+        .image-container {
+            position: relative;
+            width: 100%;
+            height: 75vh;
+        }
+        .image-container img {
+            position: absolute;
+            width: 60vh; /* Adjusted size */
+            height: auto;
+        }
+        .image1 {
+            top: 0%;
+            left: 5%;
+        }
+        .image2 {
+            top: 20%;
+            right: 10%;
+        }
+        .image3 {
+            bottom: 10%;
+            left: 15%;
         }
     </style>
 </head>
@@ -59,8 +82,10 @@
         <button class="center-button">Tarifs</button>
         <button class="center-button">Formulaire d'inscription</button>
     </div>
-    
-        
-    
+    <div class="image-container">
+        <img src="Snapshot_18.PNG" alt="Image 1" class="image1">
+        <img src="Snapshot_19.PNG" alt="Image 2" class="image2">
+        <img src="Snapshot_20.PNG" alt="Image 3" class="image3">
+    </div>
 </body>
 </html>
