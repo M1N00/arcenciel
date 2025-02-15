@@ -9,7 +9,10 @@
             text-align: center;
             margin: 0;
             height: 100vh;
+            background: linear-gradient(to right, white, #89dcff);
+           
         }
+        
         .center-button {
             display: block;
             margin: 20px auto;
@@ -51,27 +54,30 @@
             position: relative;
             z-index: 2;
         }
-        .image-container {
+        .Peinture-container {
             position: relative;
             width: 100%;
             height: 75vh;
+            
         }
-        .image-container img {
+        .Peinture-container img  {
             position: absolute;
             width: 60vh; /* Adjusted size */
             height: auto;
         }
-        .image1 {
+        .Peinture1 {
             top: 0%;
-            left: 5%;
+            left: -5vh;
+            
         }
-        .image2 {
-            top: 20%;
-            right: 10%;
+        .Peinture2 {
+            top: 30%;
+            right: -5vh;
         }
-        .image3 {
-            bottom: 10%;
-            left: 15%;
+        .Peinture3 {
+            top: 60%;
+            left: 50%;
+            transform: translateX(-50%);
         }
     </style>
 </head>
@@ -82,10 +88,33 @@
         <button class="center-button">Tarifs</button>
         <button class="center-button">Formulaire d'inscription</button>
     </div>
-    <div class="image-container">
-        <img src="Snapshot_18.PNG" alt="Image 1" class="image1">
-        <img src="Snapshot_19.PNG" alt="Image 2" class="image2">
-        <img src="Snapshot_20.PNG" alt="Image 3" class="image3">
+    <div class="Peinture-container">
+        <img src="Peinture1.PNG" alt="Peinture1" class="Peinture1">
+        
+        <img src="Peinture2.PNG" alt="Peinture2" class="Peinture2">
+        <img src="Peinture3.PNG" alt="Peinture3" class="Peinture3">
     </div>
+    <div style="font-size: 40px; text-align: left;" >
+        <p>Le jardin d'enfants Arc-en-Ciel est situé au chemin de l'Etang 1, 1037 Etagnières, en face de l'administration communale.</p>
+
+        <p></p>
+        
+        <p>
+            C'est dans un cadre chaleureux et sécurisant, que les enfants sont accueillis dès l'âge de 2 ans 1/2, jusqu'à 5 ans (2P).
+        </p>
+        <p>
+            Le jardin d'enfants Arc-en-Ciel est un lieu de découvertes, où les enfants jouent, ont une vie sociale, se familiarisent avec le partage, l'autonomie,  la collectivité, les différences entre enfants, la confiance en soi.
+            Chaque matin, un atelier est proposé.  Avec différents matériaux, l'enfant à la possibilité de peindre sur des supports, de cuisiner, d'écouter des histoires racontées par une éducatrice, de participer à des jeux de société, d'exercer sa motricité avec de la pâte à sel.. .
+            Tous les lundis matins, Sylviane Buchilly donne un cours d'expression corporelle, méthode Margaret Morris.
+            Quatre à cinq fois par année, des sorties en dehors du jardin d'enfants sont planifiées. 
+            Lorsque les températures sont plus clémentes et à partir du mois de mars, une fois par mois, une sortie en forêt est organisée, par tous les temps. Nous profitons des alentours du refuge d'Etagnières et d'être au vert pour observer, écouter, sentir, organiser des jeux.
+            En collaboration avec l'UAPE d'Etagnières, les classes enfantines, un bac avec de la terre est mis à notre disposition. Planter, semer. regarder les fleurs pousser, manger des tomates cerises, préparer des tisanes avec les herbes du jardin, font la joie des enfants.
+        </p>
+        <p>
+            Chaque enfant avec ses spécificités est le bienvenu. 
+            L'inclusion fait partie de la vie sociale.
+        </p>     
+    </div>
+
 </body>
 </html>
