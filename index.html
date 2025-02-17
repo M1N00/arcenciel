@@ -142,6 +142,22 @@
                 transform: translateX(0);
             }
         }
+        .team-member {
+            display: inline-block; /* Ensure inline display */
+            text-align: center;
+            margin: 10px;
+            vertical-align: top; /* Align to the top */
+        }
+        .team-member img {
+            border: 2px solid #4CAF50;
+            border-radius: 10px;
+            width: 30vh;
+            height: auto;
+        }
+        .team-member p {
+            margin-top: 5px;
+            font-size: 2vh;
+        }
     </style>
     
    
@@ -156,7 +172,8 @@
     </div>
     
     <div class="background-div">
-        <h1>Jardin d'enfant arc-en-ciel</h1>
+        <h3>Jardin d'enfant :</h3>
+        <h1>arc-en-ciel</h1>
         <h2>1037 Etagnières</h2>
         <button class="center-button">Tarifs</button>
         <button class="center-button">Formulaire d'inscription</button>
@@ -193,18 +210,40 @@
         </p>     
     </div>
     <div>
-        <p style="font-size: 40px; font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;">Notre TWINT :</p>
+        <h2 style="font-size: 40px;">Notre TWINT :</h2>
         <img src="QRcode.png" alt="" style="height: 30vh;height: 30vh;">
     </div>
 
     <div>
-        <p style="font-size: 40px; font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;">Notre équipe :</p>
-
-        
-        <img src="staff1.PNG" style="width: 30vh;">
-        <img src="staff2.PNG" style="width: 30vh;">
-        <img src="staff3.PNG" style="width: 30VH;">
+        <h2 style="font-size: 40px;">Notre équipe :</h2>
+        <div class="team-member">
+            <img src="staff1.PNG" alt="Staff 1">
+            <p>Véronique Pieren</p>
+            <p>Professeure</p>
+        </div>
+        <div class="team-member">
+            <img src="staff2.PNG" alt="Staff 2">
+            <p>Lilou</p>
+            <p>Stagiaire</p>
+        </div>
+        <div class="team-member">
+            
+            <img src="staff3.PNG" alt="Staff 3">
+            <p>Sylviane Buchille</p>
+            <p>Professeure</p>
+        </div>
     </div>
+
+    <div>
+        <h2 style="font-size: 40px;">Le jardin d'enfant :</h2>
+        <img src="jardin.jpg" style="height: 40vh;">
+        <img src="jardin2.jpg" style="height: 40vh;">
+    </div>
+    
+    
+    
+    <h1>SITE EN CONSTRUCTION</h1>
+    <img src="enconstruction.gif">
 
 </body>
 
