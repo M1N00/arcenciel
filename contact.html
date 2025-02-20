@@ -15,6 +15,35 @@
            
         }
 
+        .background-div {
+            background-image: url('aquarelle-arc-ciel-abstrait-peint-main_100956-424-4.avif');
+            background-size: cover;
+            color: rgb(59, 59, 59);
+            padding: 0px;
+            height: 100vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            position: relative;
+            font-size: 4vh;
+            animation: fadeIn 2s ease-in-out; /* Ajoute l'animation */
+        }
+        .background-div::before {
+            content: "";
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(to right, rgba(255, 255, 255, 0), #89dcff);
+            z-index: 1;
+        }
+        .background-div > * {
+            position: relative;
+            z-index: 2;
+        }
+
         .fixed-button {
             position: fixed;
             top: 20px;
@@ -37,14 +66,16 @@
 <body>
     <button class="fixed-button" onclick="GoBack()">Retour</button>
 
-
-
-    <div style="background-color: rgba(0, 0, 0, 0.473);">
-        <h2 style="font-size: 40px; color: white;">Nos contacts</h2>
-        <p style="font-size: 30px; color: white;">SMS et Whatsapp : 079 199 42 05</p>
-        
-        <p style="font-size: 30px; color: white;">Notre adresse mail : <a href="mailto:arcenciel.jardindenfants@gmail.com" style="color: white; font-size: 25px;">arcenciel.jardindenfants@gmail.com</a></p>
+    <div class="background-div">
+        <div style="background-color: rgba(0, 0, 0, 0.473);">
+            <h2 style="font-size: 40px; color: white;">Nos contacts</h2>
+            <p style="font-size: 30px; color: white;">SMS et Whatsapp : 079 199 42 05</p>
+            
+            <p style="font-size: 30px; color: white;">Notre adresse mail : <a href="mailto:arcenciel.jardindenfants@gmail.com" style="color: white; font-size: 25px;">arcenciel.jardindenfants@gmail.com</a></p>
+        </div>
     </div>
+
+   
 </body>
 <script>
     function GoBack() {

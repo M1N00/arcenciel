@@ -11,7 +11,7 @@
             height: 100vh;
             background: linear-gradient(to right, white, #89dcff);
             font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
-           
+            overflow-x: hidden; /* Prevent horizontal scroll */
         }
         .fixed-button {
             position: fixed;
@@ -93,6 +93,8 @@
             height: 85vh;
             box-shadow: 0 0px 16px rgba(0, 0, 0, 0.4); /* Add shadow effect */
             animation: fadeIn 2s ease-in-out; /* Ajoute l'animation */
+            max-width: 100vw;
+            overflow: hidden;
         }
         .Peinture-container img  {
             position: absolute;
@@ -132,6 +134,7 @@
             background-color: white;
             z-index: 1001;
             animation: slideIn 0.5s forwards;
+            max-width: 90vw;
         }
 
         @keyframes slideIn {
@@ -152,6 +155,8 @@
             border: 2px solid #4CAF50;
             border-radius: 10px;
             width: 30vh;
+            height: auto;
+            max-width: 100%;
             height: auto;
         }
         .team-member p {
