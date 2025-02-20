@@ -88,11 +88,11 @@
             z-index: 2;
         }
         .Peinture-container {
-            
             position: relative;
             width: 100%;
-            height: 75vh;
-            
+            height: 85vh;
+            box-shadow: 0 0px 16px rgba(0, 0, 0, 0.4); /* Add shadow effect */
+            animation: fadeIn 2s ease-in-out; /* Ajoute l'animation */
         }
         .Peinture-container img  {
             position: absolute;
@@ -101,15 +101,14 @@
         }
         .Peinture1 {
             top: 0%;
-            left: -5vh;
-            
+            left: 0; /* Adjusted to stay within the viewport */
         }
         .Peinture2 {
             top: 30%;
-            right: -5vh;
+            right: 0; /* Adjusted to stay within the viewport */
         }
         .Peinture3 {
-            top: 60%;
+            bottom: 0%;
             left: 50%;
             transform: translateX(-50%);
         }
@@ -124,13 +123,14 @@
         }
 
         #hidden-div {
+            display: none; /* Garde caché par défaut */
             position: fixed;
             top: 0;
             right: 0;
-            width: 300px; /* Adjust as needed */
+            width: 300px;
             height: 100%;
             background-color: white;
-            z-index: 1001; /* Ensure it is above other elements */
+            z-index: 1001;
             animation: slideIn 0.5s forwards;
         }
 
@@ -168,7 +168,10 @@
     <div id="hidden-div" style="display: none;">
         <p></p>
         <button class="fermer-button" onclick="toggleDiv()">Fermer</button>
-        <p>Contenu du div caché</p>
+        <hr style="width: 100%; border: 1px solid #000;">
+        <p><button class="fermer-button" onclick="GoToActivité()">Activité</button></p>
+        <p><button class="fermer-button" onclick="GoToContact()">Contact</button></p>
+        
     </div>
     
     <div class="background-div">
@@ -188,7 +191,7 @@
         <img src="Peinture2.PNG" alt="Peinture2" class="Peinture2">
         <img src="Peinture3.PNG" alt="Peinture3" class="Peinture3">
     </div>
-    <div style="font-size: 40px; text-align: left;" >
+    <div style="font-size: 30px; text-align: left;" >
         <p>Le jardin d'enfants Arc-en-Ciel est situé au chemin de l'Etang 1, 1037 Etagnières, en face de l'administration communale.</p>
 
         <p></p>
@@ -214,7 +217,8 @@
         <img src="QRcode.png" alt="" style="height: 30vh;height: 30vh;">
     </div>
 
-    <div>
+    <div style="box-shadow: 0 0px 16px rgba(0, 0, 0, 0.4); /* Add shadow effect */">
+        
         <h2 style="font-size: 40px;">Notre équipe :</h2>
         <div class="team-member">
             <img src="staff1.PNG" alt="Staff 1">
@@ -240,24 +244,48 @@
         <img src="jardin2.jpg" style="height: 40vh;">
     </div>
     
+    <div style=" box-shadow: 0 0px 16px rgba(0, 0, 0, 0.4); /* Add shadow effect */">
+        <h2 style="font-size: 40px;">Nos horaires pour 2025</h2>
+        <p style="font-size: 30px;">lundi-vendredi 8h-12h15</p>
+        <h3 style="font-size: 30px;">Pendant les vacances :</h3>
+        <p style="font-size: 30px;">15-23 février</p>
+        <p style="font-size: 30px;">12-21 avril</p>
+        <p style="font-size: 30px;">21 juillet au 1er août</p>
+        <p style="font-size: 30px;">18-26 octobre</p>
+        <p style="font-size: 30px;">2 décembre au 4 janvier</p>
+    </div>
     
+    <div style="background-color: rgba(0, 0, 0, 0.473);">
+        <h2 style="font-size: 40px; color: white;">Nos contacts</h2>
+        <p style="font-size: 30px; color: white;">SMS et Whatsapp : 079 199 42 05</p>
+        <p style="font-size: 30px; color: white;">Notre adresse mail : arcenciel.jardindenfants@gmail.com</p>
+        
+        
+    </div>
     
-    <h1>SITE EN CONSTRUCTION</h1>
-    <img src="enconstruction.gif" style="max-width: 50%; height: auto;">
+
 
 </body>
 
 <script>
        function toggleDiv() {
-        var div = document.getElementById("hidden-div");
-        if (div.style.display === "none") {
-            div.style.display = "block";
-            div.style.animation = "slideIn 0.5s forwards";
-            console.log("Toggled ON");
-        } else {
-            div.style.display = "none";
-            console.log("Toggled OFF");
+            var div = document.getElementById("hidden-div");
+            if (div.style.display === "none" || div.style.display === "") {
+                div.style.display = "block";
+                div.style.animation = "slideIn 0.5s forwards";
+            } else {
+                div.style.animation = "none"; // Désactive l'animation pour éviter les bugs
+                div.style.display = "none";
+            }
         }
-    }
+        console.log("OH ! Arrette de regarder la console ! C'est pas ici que ça se passe ! Je veux dire, c'est pas ici que tu vas trouver des informations utiles ! En plus le site est super mal construit, alors tu ferais mieux de partir ! -Le développeur");
+        
+        function GoToActivité() {
+            window.location.href = "activité.html";
+        }
+
+        function GoToContact() {
+            window.location.href = "contact.html";
+        }
 </script>
 </html>
