@@ -183,8 +183,8 @@
         <h3>Jardin d'enfant :</h3>
         <h1>arc-en-ciel</h1>
         <h2>1037 Etagnières</h2>
-        <button class="center-button">Tarifs</button>
-        <button class="center-button">Formulaire d'inscription</button>
+        <button class="center-button" onclick="GoToTarif()">Tarifs</button>
+        <button class="center-button" onclick="GoToInscription()">Formulaire d'inscription</button>
     </div>
     
 
@@ -196,7 +196,7 @@
         <img src="Peinture2.PNG" alt="Peinture2" class="Peinture2">
         <img src="Peinture3.PNG" alt="Peinture3" class="Peinture3">
     </div>
-    <div style="font-size: 30px; text-align: left;" >
+    <div style="font-size: 30px; text-align: center;" >
         <p>Le jardin d'enfants Arc-en-Ciel est situé au chemin de l'Etang 1, 1037 Etagnières, en face de l'administration communale.</p>
 
         <p></p>
@@ -244,7 +244,7 @@
     </div>
 
     <div>
-        <h2 style="font-size: 40px;">Le jardin d'enfant :</h2>
+        <h2 style="font-size: 40px;">Le potager : </h2>
         <img src="jardin.jpg" style="height: 40vh;">
         <img src="jardin2.jpg" style="height: 40vh;">
     </div>
@@ -291,6 +291,14 @@
 
         function GoToContact() {
             window.location.href = "contact.html";
+        }
+
+        function GoToTarif() {
+            window.location.href = "tarif.html";
+        }
+
+        function GoToInscription() {
+            window.location.href = "inscription.html";
         }
 </script>
 </html>
