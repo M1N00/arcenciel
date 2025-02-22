@@ -83,17 +83,20 @@
     <p style="font-size: 25px;">1 : Imprimer la <a href="Déclaration de revenus.pdf" download>Déclaration de revenus</a> et le <a href="Formulaire d'inscription.pdf" download>Formulaire d'inscription</a></p>
     <p style="font-size: 25px;">2 : Lisez le <a href="Réglement.pdf" download>Réglement</a></p>
     <p style="font-size: 25px;">3 : Remplissez la déclaration de revenus et le formulaire d'inscription</p>
-    <p style="font-size: 25px;">4 : Scanner la déclaration de revenus et le formulaire d'inscription et glisser-déposer le ci-dessous</p>
+    <p style="font-size: 25px;">4 : Scanner la déclaration de revenus et le formulaire d'inscription et glisser-déposer les ci dessous</p>
 
     <p></p>
+    
     <form id="uploadForm">
         <div id="dropZone">
           <p>Glisse et dépose un fichier ici</p>
           <input type="file" id="fileInput" hidden />
         </div>
-        <p id="fileName"></p>
-        <button type="submit" class="fermer-button">Envoyer</button>
+        <div id="fileList"></div>
+        <button type="submit" class="fermer-button" id="BOUTON">Envoyer</button>
     </form>
+
+    
 
    
 </body>
