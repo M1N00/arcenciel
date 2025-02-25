@@ -1,7 +1,7 @@
 // Importation des modules Firebase
 import { initializeApp } from "https://www.gstatic.com/firebasejs/10.7.1/firebase-app.js";
-import { getStorage, ref, getDownloadURL } from "https://www.gstatic.com/firebasejs/10.7.1/firebase-storage.js";
 import { getFirestore, doc, getDoc } from "https://www.gstatic.com/firebasejs/10.7.1/firebase-firestore.js";
+import { getStorage, ref, getDownloadURL } from "https://www.gstatic.com/firebasejs/10.7.1/firebase-storage.js";
 
 // Configuration Firebase (remplace avec tes propres clés)
 const firebaseConfig = {
@@ -33,6 +33,7 @@ async function fetchActivityData() {
   try {
     // 🔹 Récupération du document Firestore
     const docRef = doc(db, "Activités", "montagne");
+    
     const docSnap = await getDoc(docRef);
 
     if (docSnap.exists()) {
@@ -55,5 +56,5 @@ async function fetchActivityData() {
   }
 }
 
-// Appel de la fonction au chargement de la page
-fetchActivityData();
+// Appel de la fonction avec un délai de 2 secondes
+setTimeout(fetchActivityData, 2000);
