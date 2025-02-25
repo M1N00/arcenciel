@@ -14,6 +14,10 @@ const firebaseConfig = {
   measurementId: "G-PDF27GGNVM"
 };
 
+//Mode de débogage avancé pour comprendre ski spasse dans sfoutoir dmerde de firebase 
+import { setLogLevel } from "https://www.gstatic.com/firebasejs/10.7.1/firebase-firestore.js";
+setLogLevel("debug");
+
 // Initialisation de Firebase
 const app = initializeApp(firebaseConfig);
 const storage = getStorage(app);
