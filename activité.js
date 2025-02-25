@@ -20,11 +20,7 @@ setLogLevel("debug");
 
 import { getFirestore, collection, getDocs } from "firebase/firestore"; 
 
-//supprimer ce truc si ça marche pas je sais pas ce que ça fait mdr aled je veux juste que ça marche bordel
-const db2 = getFirestore();
-getDocs(collection(db2, "users"))
-  .then((snapshot) => console.log("Data:", snapshot.docs.map(doc => doc.data())))
-  .catch((error) => console.error("Firestore error:", error));
+
 
 // Initialisation de Firebase
 const app = initializeApp(firebaseConfig);
