@@ -22,6 +22,7 @@ setLogLevel("debug");
 const app = initializeApp(firebaseConfig);
 const storage = getStorage(app);
 const db = getFirestore(app);
+print(db);
 
 // Sélection des éléments HTML
 const Image_activité = document.getElementById('IMAGE');
@@ -32,7 +33,7 @@ const Description = document.getElementById('DESCRIPTION');
 async function fetchActivityData() {
   try {
     // 🔹 Récupération du document Firestore
-    const docRef = doc(db, "Activités", "montagne");
+    const docRef = doc(db, "Activities", "montagne");
     
     const docSnap = await getDoc(docRef);
 
