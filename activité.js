@@ -1,60 +1,83 @@
 // Importation des modules Firebase
 import { initializeApp } from "https://www.gstatic.com/firebasejs/10.7.1/firebase-app.js";
-import { getFirestore, doc, getDoc } from "https://www.gstatic.com/firebasejs/10.7.1/firebase-firestore.js";
+import { getFirestore, doc, getDoc, enableIndexedDbPersistence } from "https://www.gstatic.com/firebasejs/10.7.1/firebase-firestore.js";
 import { getStorage, ref, getDownloadURL } from "https://www.gstatic.com/firebasejs/10.7.1/firebase-storage.js";
 
-// Configuration Firebase (remplace avec tes propres clés)
-const firebaseConfig = {
-  apiKey: "AIzaSyB9xEmB-83GBS5fDRrmo7zPBWhReC3QkkE",
-  authDomain: "backend-jardin-enfant.firebaseapp.com",
-  projectId: "backend-jardin-enfant",
-  storageBucket: "backend-jardin-enfant.appspot.com",  // Correction de storageBucket
-  messagingSenderId: "840177966004",
-  appId: "1:840177966004:web:c265a2b1477356ec6570e1",
-  measurementId: "G-PDF27GGNVM"
-};
+// Configuration Firebase
+const firebaseConfig = { /* votre configuration */ };
 
-// Activer les logs Firebase Firestore pour débogage
-import { setLogLevel } from "https://www.gstatic.com/firebasejs/10.7.1/firebase-firestore.js";
-setLogLevel("debug");
-
-// Initialisation de Firebase
+// Initialisation Firebase
 const app = initializeApp(firebaseConfig);
 const storage = getStorage(app);
 const db = getFirestore(app);
 
-// Sélection des éléments HTML
+// Activer la persistance offline
+enableIndexedDbPersistence(db)
+  .catch((err) => {
+    if (err.code === 'failed-precondition') {
+      console.warn("Mode multi-onglet non supporté");
+    } else if (err.code === 'unimplemented') {
+      console.warn("Le navigateur ne supporte pas le stockage offline");
+    }
+  });
+
+// Éléments HTML
 const Image_activité = document.getElementById('IMAGE');
 const Titre = document.getElementById('Titre');
 const Description = document.getElementById('DESCRIPTION');
 
-// 🔥 Fonction pour récupérer les données de Firestore et afficher l'image
+// 🔥 Version améliorée avec gestion offline
 async function fetchActivityData() {
+  const docRef = doc(db, "Activités", "montagne");
+  
   try {
-    // 🔹 Récupération du document Firestore
-    const docRef = doc(db, "Activités", "montagne");
-    
+    // Essayer d'abord la version serveur
     const docSnap = await getDoc(docRef);
-
-    if (docSnap.exists()) {
-      const data = docSnap.data();
-      
-      // 🔹 Mise à jour du titre et de la description
-      Titre.textContent = data.titre;
-      Description.textContent = data.description;
-
-      // 🔹 Chargement de l'image depuis Firebase Storage
-      const imageRef = ref(storage, data.imagePath);
-      const imageUrl = await getDownloadURL(imageRef);
-      Image_activité.src = imageUrl;
-
-    } else {
-      console.log("⚠️ Aucune donnée trouvée !");
+    
+    if (!docSnap.exists()) {
+      console.log("⚠️ Document non trouvé");
+      return;
     }
+
+    updateUI(docSnap.data());
+    
   } catch (error) {
-    console.error("❌ Erreur lors de la récupération des données :", error);
+    if (error.code === 'unavailable') {
+      // Fallback au cache
+      try {
+        const cachedSnap = await getDocFromCache(docRef);
+        updateUI(cachedSnap.data());
+        console.warn("⚠️ Données en cache");
+      } catch (cacheError) {
+        showError("Aucune donnée disponible offline");
+      }
+    } else {
+      showError(`Erreur: ${error.message}`);
+    }
   }
 }
 
-// Appel de la fonction avec un délai de 2 secondes
-setTimeout(fetchActivityData, 2000);
+function updateUI(data) {
+  Titre.textContent = data.titre;
+  Description.textContent = data.description;
+  
+  // Chargement image avec cache
+  getDownloadURL(ref(storage, data.imagePath))
+    .then(url => {
+      Image_activité.src = url;
+      Image_activité.style.display = 'block';
+    })
+    .catch((storageError) => {
+      console.error("Erreur image:", storageError);
+      Image_activité.style.display = 'none';
+    });
+}
+
+function showError(message) {
+  Titre.textContent = "Erreur de connexion";
+  Description.textContent = message;
+  Image_activité.style.display = 'none';
+}
+
+// Démarrer immédiatement
+fetchActivityData();
