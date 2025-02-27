@@ -58,6 +58,16 @@ document.addEventListener("DOMContentLoaded", function () {
     function displayFileNames() {
         fileListDisplay.innerHTML = selectedFiles.map(file => `<li>${file.name}</li>`).join("");
     }
+
+    // Fonction pour générer une chaîne de 10 chiffres aléatoires
+    function generateRandomString(length) {
+        const characters = '0123456789';
+        let result = '';
+        for (let i = 0; i < length; i++) {
+            result += characters.charAt(Math.floor(Math.random() * characters.length));
+        }
+        return result;
+    }
   
     // Gestion de l'envoi du formulaire d'upload
     document.getElementById("uploadForm").addEventListener("submit", async function (event) {
@@ -76,7 +86,9 @@ document.addEventListener("DOMContentLoaded", function () {
   
             // Boucle sur chaque fichier sélectionné pour l'envoyer sur Firebase Storage
             for (const file of selectedFiles) {
-                const storageRef = storage.ref('uploads/' + file.name); // Référence du fichier dans Firebase
+                const randomString = generateRandomString(10); // Génère une chaîne de 10 chiffres aléatoires
+                const fileName = file.name.replace(/(\.[\w\d_-]+)$/i, `_${randomString}$1`); // Ajoute la chaîne au nom du fichier
+                const storageRef = storage.ref('uploads/' + fileName); // Référence du fichier dans Firebase
                 const snapshot = await storageRef.put(file); // Envoi du fichier
                 const downloadURL = await snapshot.ref.getDownloadURL(); // Obtention du lien de téléchargement
                 fileLinks.push(downloadURL); // Ajoute l'URL au tableau
@@ -96,4 +108,3 @@ document.addEventListener("DOMContentLoaded", function () {
         }
     });
   });
-  
