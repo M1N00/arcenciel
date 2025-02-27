@@ -1,6 +1,4 @@
-// Importation des modules Firebase
-// import firebase from "./node_modules/firebase/app";
-// import "./node_modules/firebase/firestore";
+
 
 // Configuration Firebase
 var firebaseConfig = {
