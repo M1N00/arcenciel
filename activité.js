@@ -1,6 +1,6 @@
 //Bonjour Véronique, vous pouvez inséré le titre de l'activité et la description ici entre les guillemets
-var TITRE = "Ceci est un example de titre d'activité"
-var DESCRIPTION = "Ceci est un example de description d'activité"
+var TITRE = "Ceci est un exemple de titre d'activité"
+var DESCRIPTION = "Ceci est un exemple de description d'activité"
 
 
 
