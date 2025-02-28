@@ -73,6 +73,44 @@
         .fermer-button:hover {
             background-color: #45a049;
         }
+
+        /* From Uiverse.io by satyamchaudharydev */ 
+        .loader {
+            display: block;
+            --height-of-loader: 4px;
+            --loader-color: #0071e2;
+            width: 130px;
+            height: var(--height-of-loader);
+            border-radius: 30px;
+            background-color: rgba(0,0,0,0.2);
+            position: relative;
+        }
+
+        .loader::before {
+            content: "";
+            position: absolute;
+            background: var(--loader-color);
+            top: 0;
+            left: 0;
+            width: 0%;
+            height: 100%;
+            border-radius: 30px;
+            animation: moving 1s ease-in-out infinite;
+        ;
+        }
+
+        @keyframes moving {
+        
+            50% {
+                width: 100%;
+            }
+
+            100% {
+                width: 0;
+                right: 0;
+                left: unset;
+            }
+        }
 </style>
 <body>
     <button class="fixed-button" onclick="GoBack()">Retour</button>
@@ -83,7 +121,9 @@
     <p style="font-size: 25px;">1 : Imprimer la <a href="Déclaration de revenus.pdf" download>Déclaration de revenus</a> et le <a href="Formulaire d'inscription.pdf" download>Formulaire d'inscription</a></p>
     <p style="font-size: 25px;">2 : Lisez le <a href="Réglement.pdf" download>Réglement</a></p>
     <p style="font-size: 25px;">3 : Remplissez la déclaration de revenus et le formulaire d'inscription</p>
-    <p style="font-size: 25px;">4 : Scanner la déclaration de revenus et le formulaire d'inscription et glisser-déposer les ci dessous puis cliquer sur envoyer</p>
+    <p style="font-size: 25px;">4 : Scanner la déclaration de revenus et le formulaire d'inscription remplis.</p>
+    <p style="font-size: 25px;">5 : glisser-déposer les ci dessous puis cliquer sur envoyer. Vous pouvez aussi envoyer les documents en présentielle ou par la poste</p> 
+    <p style="font-size: 25px;">6 : Veuillez envoyer les deux fichiers en même temps et NE PAS les mettre dans un dossier</p>
 
     <p></p>
     
@@ -93,7 +133,11 @@
           <input type="file" id="fileInput" hidden />
         </div>
         <div id="fileList"></div>
+        <p></p>
+        <div class="loader" id="LOADER"></div>
+        <p></p>
         <button type="submit" class="fermer-button" id="BOUTON">Envoyer</button>
+        
     </form>
 
     

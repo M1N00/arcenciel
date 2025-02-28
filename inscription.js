@@ -1,3 +1,7 @@
+document.getElementById('LOADER').style.display = 'none';
+document.getElementById('BOUTON').style.display = 'block';
+
+
 // Attend que le DOM soit entièrement chargé avant d'exécuter le script
 document.addEventListener("DOMContentLoaded", function () {
 
@@ -78,6 +82,10 @@ document.addEventListener("DOMContentLoaded", function () {
             alert("Sélectionne au moins un fichier !");
             return;
         }
+
+        // Affiche le loader et masque le bouton
+        document.getElementById('LOADER').style.display = 'block';
+        document.getElementById('BOUTON').style.display = 'none';
   
         try {
             // Désactive le bouton d'envoi pour éviter les doubles soumissions
@@ -105,6 +113,10 @@ document.addEventListener("DOMContentLoaded", function () {
         } catch (error) {
             console.error("Erreur lors de l'upload ou l'envoi de l'email :", error);
             alert("Échec de l'envoi !"); // Message d'erreur en cas de problème
+        } finally {
+            // Masque le loader et affiche le bouton
+            document.getElementById('LOADER').style.display = 'none';
+            document.getElementById('BOUTON').style.display = 'block';
         }
     });
   });
