@@ -1,5 +1,5 @@
 document.getElementById('LOADER').style.display = 'none';
-document.getElementById('BOUTON').style.display = 'block';
+/*document.getElementById('BOUTON').style.display = 'block';
 
 
 // Attend que le DOM soit entièrement chargé avant d'exécuter le script
@@ -120,3 +120,4 @@ document.addEventListener("DOMContentLoaded", function () {
         }
     });
   });
+*/
